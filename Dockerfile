@@ -1,5 +1,5 @@
 # Etapa de construcción - Aquí se instalan dependencias y se construye la app
-FROM node:18-alpine
+FROM node:18-alpine as builder
 
 WORKDIR /app
 COPY package*.json ./

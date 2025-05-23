@@ -1,0 +1,41 @@
+.unauthorized-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.card h1 {
+  color: #e3813b;
+  margin-bottom: 16px;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.btn-home {
+  background-color: #e3813b;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+  background-color: #cf732f;
+}

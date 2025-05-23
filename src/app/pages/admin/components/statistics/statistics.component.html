@@ -1,0 +1,89 @@
+<div *ngIf="loading">
+  <p>Cargando estadísticas...</p>
+</div>
+
+<div *ngIf="error">
+  <p style="color: red;">{{ error }}</p>
+</div>
+
+<div *ngIf="!loading" class="statistics-container">
+
+  <h2 class="section-title">KPIs</h2>
+
+  <div class="stats-container">
+    <div class="stat-card" *ngFor="let stat of kpiStats">
+      <div class="stat-icon">{{ stat.icon }}</div>
+      <div class="stat-info">
+        <div class="stat-label">{{ stat.label }}</div>
+        <div class="stat-value">{{ stat.value }}</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <h3 class="section-title mt-5">Pagadas vs No pagadas</h3>
+  <ngx-charts-pie-chart
+    *ngIf="hasData(statistics.charts.paidVsUnpaid)"
+    [results]="statistics.charts.paidVsUnpaid"
+    [view]="viewPie"
+    [legend]="true"
+    [labels]="true"
+    [doughnut]="true">
+  </ngx-charts-pie-chart>
+
+  <h3 class="section-title mt-5">Órdenes por estado</h3>
+  <ngx-charts-pie-chart
+    *ngIf="hasData(statistics.charts.ordersByState)"
+    [results]="statistics.charts.ordersByState"
+    [view]="viewPie"
+    [legend]="true"
+    [labels]="true">
+  </ngx-charts-pie-chart>
+
+  <h3 class="section-title mt-5">Órdenes a lo largo del tiempo</h3>
+  <ngx-charts-line-chart
+    *ngIf="ordersOverTimeChartData.length > 0 && ordersOverTimeChartData[0].series.length > 0"
+    [results]="ordersOverTimeChartData"
+    [view]="viewLine"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    xAxisLabel="Fecha"
+    yAxisLabel="Número de órdenes">
+  </ngx-charts-line-chart>
+  <p *ngIf="ordersOverTimeChartData.length === 0 || ordersOverTimeChartData[0].series.length === 0">
+    No hay datos para mostrar el gráfico de órdenes a lo largo del tiempo.
+  </p>
+
+  <h3 class="section-title mt-5">Top Clientes</h3>
+  <ngx-charts-bar-vertical
+    *ngIf="hasData(statistics.charts.topCustomers)"
+    [results]="statistics.charts.topCustomers"
+    [view]="viewBar"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    xAxisLabel="Cliente"
+    yAxisLabel="Ventas">
+  </ngx-charts-bar-vertical>
+
+  <h3 class="section-title mt-5">Top Productos</h3>
+  <ngx-charts-bar-vertical
+    *ngIf="hasData(statistics.charts.topProducts)"
+    [results]="statistics.charts.topProducts"
+    [view]="viewBar"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="false"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    xAxisLabel="Producto"
+    yAxisLabel="Ventas">
+  </ngx-charts-bar-vertical>
+
+</div>

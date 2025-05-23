@@ -1,0 +1,11 @@
+<!-- SOLO UNO -->
+<app-navbar (openLogin)="openLoginModal()"></app-navbar>
+
+<!-- Modal login (se muestra si showLogin es true) -->
+<app-login [show]="showLogin" (close)="closeLoginModal()"></app-login>
+
+<!-- Páginas -->
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<app-footer></app-footer>

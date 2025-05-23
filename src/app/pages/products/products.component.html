@@ -1,0 +1,11 @@
+<div class="productos-container">
+  <h2 class="titulo">Nuestros Productos</h2>
+
+  <div>
+    <div class="producto-card">
+      <app-product (openLogin)="openLoginModal()" ></app-product>
+      <button>Ver más</button>
+    </div>
+    <app-login *ngIf="showLogin" [show]="showLogin" (close)="closeLoginModal()"></app-login>
+  </div>
+</div>

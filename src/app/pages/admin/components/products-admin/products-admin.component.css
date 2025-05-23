@@ -1,0 +1,296 @@
+/* Contenedor principal */
+.contenedor {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto; /* Márgenes alrededor del contenedor */
+  background-color: #ffffff; /* Fondo blanco para el contenedor */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}form
+
+/* Títulos principales */
+h2 {
+  margin-top: 2rem;
+  color: #333;
+  font-size: 2rem; /* Tamaño de fuente más grande */
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0; /* Línea debajo del título */
+  padding-bottom: 0.5rem;
+}
+
+/* Resumen de ventas */
+.resumen {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.resumen-card {
+  background-color: #f7fafc;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.resumen-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th.mat-header-cell {
+  background-color: #4a5568;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td.mat-cell {
+  font-size: 1rem;
+  color: #333;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+tr.mat-row:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+tr.mat-row:hover {
+  background-color: #edf2f7;
+  cursor: pointer;
+}
+
+/* Estados de pago */
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+/* Mejorar la apariencia de las celdas de estado */
+td.mat-cell span {
+  display: inline-block;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.paid {
+  background-color: #d4edda;
+  color: green;
+}
+
+.unpaid {
+  background-color: #f8d7da;
+  color: red;
+}
+
+/* Estilo base del formulario */
+.formulario-producto {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Títulos de sección */
+.formulario-producto h2 {
+  color: #1a1a1a;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Input fields */
+.formulario-producto input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #f8fafc;
+  color: #1a1a1a;
+}
+
+.formulario-producto input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  background-color: #ffffff;
+}
+
+/* Efecto floating labels (opcional) */
+.form-group.focused label {
+  transform: translateY(-10px);
+  font-size: 0.85rem;
+  color: #6366f1;
+}
+
+/* Form rows para elementos lado a lado */
+.form-row {
+  display: flex;
+  gap: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Botones */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.btn-primary {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  padding: 0.85rem 2rem;
+  background: #ffffff;
+  color: #6366f1;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #c7d2fe;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Validación */
+input.ng-invalid.ng-touched {
+  border-color: #ef4444;
+}
+
+input.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formulario-producto {
+    padding: 1.8rem;
+    margin: 1rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animación de carga (opcional) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.formulario-producto {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}

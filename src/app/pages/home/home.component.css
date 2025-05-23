@@ -1,0 +1,99 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fefdf9;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container h1 {
+  font-size: 3.5rem;
+  color: #DAA520; /* goldenrod mejor equilibrado */
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.home-container p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.imagenHome {
+  display: block;
+  margin: 2rem auto;
+  width: 100%;
+  max-height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.imagenHome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.imagenHome img:hover {
+  transform: scale(1.03);
+}
+
+.home-buttons {
+  margin: 2rem 0;
+}
+
+.home-buttons button {
+  margin: 0.5rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #DAA520;
+  color: white;
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #c9961a;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #DAA520;
+  border: 2px solid #DAA520;
+}
+
+.btn-secondary:hover {
+  background-color: #faf4e5;
+}
+
+.home-quienes-somos {
+  text-align: left;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 2px solid #eee;
+}
+
+.home-quienes-somos h1 {
+  font-size: 2.5rem;
+  color: #DAA520;
+  margin-bottom: 1rem;
+}
+
+.home-quienes-somos p {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+

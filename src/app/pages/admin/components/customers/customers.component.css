@@ -1,0 +1,240 @@
+/* === CONTENEDOR GENERAL === */
+.customers-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* === TÍTULOS === */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #3178c6;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #dce3ec;
+  padding-bottom: 4px;
+}
+
+/* === CAMPO DE BÚSQUEDA === */
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.minimal-search {
+  width: 100%;
+  max-width: 320px;
+  background: transparent;
+  border-radius: 8px;
+}
+
+/* Quitar subrayado blanco default de Material */
+.minimal-search.mat-form-field-appearance-fill .mat-form-field-underline {
+  display: none;
+}
+
+.minimal-search.mat-form-field {
+  padding: 0;
+}
+
+.minimal-search .mat-form-field-wrapper {
+  padding: 0 8px;
+}
+
+.minimal-search .mat-form-field-flex {
+  border: 1px solid #d0dbe8;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+}
+
+.minimal-search.mat-focused .mat-form-field-flex {
+  border-color: #3178c6;
+  box-shadow: 0 0 0 2px rgba(49, 120, 198, 0.2);
+}
+
+.minimal-search input.mat-input-element {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+}
+
+/* Placeholder refinado */
+.minimal-search input::placeholder {
+  color: #999;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.minimal-search input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* Iconos más personalizados */
+.minimal-search .mat-icon-button {
+  color: #3178c6;
+  margin-left: 4px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.minimal-search .mat-icon-button:hover {
+  color: #255fa3;
+  transform: scale(1.1);
+}
+
+/* === TABLA === */
+.mat-elevation-z8 {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.mat-header-row {
+  background-color: #3178c6;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mat-row:nth-child(even) {
+  background-color: #f1f7ff;
+}
+
+.mat-row:hover {
+  background-color: #e0ecff;
+}
+
+/* === ICONOS/BOTONES === */
+.mat-icon-button {
+  color: #3178c6;
+  transition: transform 0.2s ease;
+}
+
+.mat-icon-button:hover {
+  transform: scale(1.15);
+}
+
+.btn-primary {
+  background-color: #3178c6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #255fa3;
+}
+
+/* === MENSAJES === */
+.loading-message,
+.error-message,
+.empty-message {
+  text-align: center;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.loading-message {
+  color: #3178c6;
+}
+
+.error-message {
+  background-color: #ffe6e6;
+  color: #d93025;
+}
+
+.empty-message {
+  color: #888;
+  font-style: italic;
+}
+
+/* === DIÁLOGO/MODAL === */
+mat-dialog-container {
+  border-radius: 10px;
+  padding: 24px !important;
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dialog-form mat-form-field {
+  width: 100%;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dialog-actions button {
+  min-width: 100px;
+}
+
+/* === BADGES === */
+.badge-paid, .badge-unpaid {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.badge-paid {
+  background-color: #4caf50;
+}
+
+.badge-unpaid {
+  background-color: #e53935;
+}
+
+/* === UTILIDADES === */
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.p-4 { padding: 1rem; }
+.text-center { text-align: center; }
+
+/* === SWEET ALERT ADAPTACIÓN VISUAL === */
+.swal2-popup {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  border-radius: 10px !important;
+}
+
+.swal2-confirm {
+  background-color: #3178c6 !important;
+  color: white !important;
+}
+
+.swal2-cancel {
+  background-color: #cccccc !important;
+  color: #333 !important;
+}

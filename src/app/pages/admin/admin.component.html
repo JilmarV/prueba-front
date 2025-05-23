@@ -1,0 +1,19 @@
+<h2 class="titulo">Bienvenido al Panel de Administración</h2>
+
+<div class="stats-container">
+  <div class="stat-card" *ngFor="let stat of stats">
+    <div class="stat-icon">{{ stat.icon }}</div>
+    <div class="stat-info">
+      <div class="stat-label">{{ stat.label }}</div>
+      <div class="stat-value">{{ stat.value }}</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="subtitulo">Módulos</h3>
+<div class="modules-container">
+  <div class="module-card" *ngFor="let area of areas" (click)="irARuta(area.ruta)">
+    <div class="module-icon">{{ area.icon }}</div>
+    <div class="module-name">{{ area.nombre }}</div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+/* Contenedor principal */
+.contenedor {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto; /* Márgenes alrededor del contenedor */
+  background-color: #ffffff; /* Fondo blanco para el contenedor */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}
+
+/* Títulos principales */
+h2 {
+  margin-top: 2rem;
+  color: #333;
+  font-size: 2rem; /* Tamaño de fuente más grande */
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0; /* Línea debajo del título */
+  padding-bottom: 0.5rem;
+}
+
+/* Resumen de ventas */
+.resumen {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.resumen-card {
+  background-color: #f7fafc;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.resumen-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th.mat-header-cell {
+  background-color: #4a5568;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td.mat-cell {
+  font-size: 1rem;
+  color: #333;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+tr.mat-row:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+tr.mat-row:hover {
+  background-color: #edf2f7;
+  cursor: pointer;
+}
+
+/* Estados de pago */
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+/* Mejorar la apariencia de las celdas de estado */
+td.mat-cell span {
+  display: inline-block;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.paid {
+  background-color: #d4edda;
+  color: green;
+}
+
+.unpaid {
+  background-color: #f8d7da;
+  color: red;
+}

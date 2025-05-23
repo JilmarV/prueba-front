@@ -1,0 +1,74 @@
+.navbar {
+  background-color: #e3813b;
+  padding: 1rem;
+  color: #ffffff;
+  border-radius: 16px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* necesario para posicionamiento absoluto de login y cart */
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 80px; /* tamaño reducido para mejor proporción */
+  margin-right: 0.8rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: #e1711f;
+}
+
+.login-link,
+.cart-link {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  color: white;
+}
+
+.login-link {
+  right: 40px;
+}
+
+.cart-link {
+  right: 80px;
+}
+
+.login-link i,
+.cart-link i {
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+  }
+}

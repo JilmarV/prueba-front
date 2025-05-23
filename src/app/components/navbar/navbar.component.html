@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/home" class="logo">
+      <img src="assets/logo.png" alt="logo">
+    </a>
+
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/products" routerLinkActive="active">Productos</a></li>
+      <li><a routerLink="/perfil" routerLinkActive="active">Perfil</a></li>
+      <li *ngIf="showAdmin">
+        <a routerLink="/admin" routerLinkActive="active">Panel Admin</a>
+      </li>
+      <li><a (click)="abrirLogin()" class="login-link"><i class="fas fa-user-astronaut fa-lg"></i></a></li>
+      <li><a (click)="openLoginCart()" routerLinkActive="activa" class="cart-link"><i class="fas fa-shopping-cart fa-lg"></i></a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,31 @@
+<div class="home-container">
+  <h1>Bienvenido a Golden Eggs</h1>
+  <p>Distribución confiable de huevos frescos para tu negocio.</p>
+
+  <a routerLink="/home" class="imagenHome">
+    <img src="assets/granjaHuevos.jpg" alt="Logo Golden Eggs"/>
+  </a>
+
+
+  <div class="home-buttons">
+    <button class="btn-primary">Ver productos</button>
+    <button class="btn-secondary">Contáctanos</button>
+  </div>
+
+  <section class = "home-who-we-are">
+    <h1>¿Quiénes somos?</h1>
+
+    <p>Hace 19 años, en la ciudad de Armenia, nació una pequeña empresa familiar dedicada a la distribución de huevos. Fundada por Cristian Mauricio López, un hombre trabajador, de carácter firme pero amable, que con esfuerzo y dedicación comenzó recorriendo las calles con su producto, ganándose la confianza de cada cliente.
+
+      Su trato cálido, responsabilidad y compromiso con la calidad fueron abriendo puertas. Con el paso del tiempo, esa confianza se transformó en crecimiento: más clientes, más rutas y un equipo que compartía sus valores. Hoy, casi dos décadas después, la empresa sigue firme, siendo reconocida no solo por lo que vende, sino por cómo lo hace: con honestidad, humildad y respeto.
+
+      Esta historia sigue escribiéndose día a día, con el mismo espíritu que la vio nacer.</p>
+  </section>
+  <section class = "home-our-products">
+    <h1>Nuestros productos</h1>
+    <p>La clasificacion de nuestros huevos se dan segun el peso:</p>
+    <app-product [limit]="3" (openLogin)="openLoginModal()"></app-product>
+
+    <app-login *ngIf="showLogin" [show]="showLogin" (close)="closeLoginModal()"></app-login>
+  </section>
+</div>

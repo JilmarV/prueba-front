@@ -1,0 +1,28 @@
+<div class="cart-container">
+  <h2 class="cart-title">Tu Carrito 🛒</h2>
+
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    <h2>🧺 Tu carrito está vacío 😢</h2>
+    Tu carrito está vacío por ahora. ¡Es el momento perfecto para explorar nuestra deliciosa selección de huevos frescos!
+  </div>
+
+  <div *ngIf="cartItems.length > 0">
+    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+      <i class="fas fa-egg fa-4x"></i>
+      <div class="cart-item-details">
+        <div class="cart-item-name">{{ item.name }}</div>
+        <div class="cart-item-quantity">x{{ item.quantity }}</div>
+        <div class="cart-item-price">${{ item.price }}</div>
+      </div>
+      <button class="cart-remove" (click)="removeItem(i)">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="cart-total">Total: ${{ getTotal() }}</div>
+
+  <div class="cart-actions">
+    <button class="checkout-button">Finalizar Compra</button>
+  </div>
+</div>

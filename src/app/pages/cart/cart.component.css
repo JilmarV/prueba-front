@@ -1,0 +1,123 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+  background-color: #fafafa; /* Fondo ligeramente distinto para diferenciar */
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.cart-item-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.cart-item-price {
+  color: #777;
+  font-size: 1rem;
+}
+
+.cart-total {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.checkout-button {
+  background-color: #ffc107;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #222;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #ffca2c;
+}
+
+.cart-remove {
+  background: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: auto; /* Esto lo empuja al extremo derecho */
+}
+
+.cart-remove:hover {
+  background: #ff0000;  /* Rojo más intenso al hover */
+  transform: scale(1.1);  /* Efecto de zoom sutil */
+}
+
+.cart-remove i {
+  font-size: 14px;  /* Tamaño del icono (si usas FontAwesome) */
+}
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+  }
+}
+
+.empty-cart {
+  text-align: center;
+  margin: 40px auto;
+  padding: 30px;
+  font-size: 1.5rem;
+  color: #777;
+  background-color: #f9f9f9;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+

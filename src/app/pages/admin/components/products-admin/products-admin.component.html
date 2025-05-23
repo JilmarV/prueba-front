@@ -1,0 +1,125 @@
+<div class="contenedor">
+  <h2>Gestión de Productos</h2>
+
+  <div class="resumen">
+    <div class="resumen-card">Total productos: {{allProducts}}</div>
+    <div class="resumen-card">Productos en stock: {{productsInStock}}</div>
+    <div class="resumen-card">Producto más caro: {{mostExpensiveProduct}}</div>
+  </div>
+
+  <h2>📝 Formulario de Producto</h2>
+
+  <!-- Formulario para crear/editar producto -->
+  <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" class="formulario-producto">
+    <div class="form-group">
+      <label>Tipo de Huevo:</label>
+      <select name="type" [(ngModel)]="selectedTypeId" required class="form-control">
+        <option value="" disabled selected>Seleccione un tipo</option>
+        <option *ngFor="let type of types" [value]="type.id">
+          {{ type.type }} <!-- Asumiendo que TypeEgg tiene una propiedad 'type' -->
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Color:</label>
+      <input type="text" name="color" [(ngModel)]="product.color">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Precio Compra:</label>
+        <input type="number" name="buyPrice" [(ngModel)]="product.buyPrice" required>
+      </div>
+
+      <div class="form-group">
+        <label>Precio Venta:</label>
+        <input type="number" name="salePrice" [(ngModel)]="product.salePrice" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cantidad:</label>
+        <input type="number" name="quantity" [(ngModel)]="product.avibleQuantity" required>
+      </div>
+
+      <div class="form-group">
+        <label>Fecha Expiración:</label>
+        <input type="date" name="expirationDate" [(ngModel)]="product.expirationDate">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Proveedor: </label>
+      <select name="type" required class="form-control">
+        <option value="" disabled selected>Seleccione un tipo</option>
+        <option *ngFor="let supplier of suppliers" [value]="supplier.id">
+          {{ supplier.name }} <!-- Asumiendo que TypeEgg tiene una propiedad 'type' -->
+        </option>
+      </select>
+    </div>
+
+    <div class="form-sactions">
+      <button type="submit" class="btn-primary">
+        {{ product.id ? 'Actualizar' : 'Crear' }} Producto
+      </button>
+      <button type="button" class="btn-secondary" (click)="resetForm(productForm)">Limpiar</button>
+    </div>
+  </form>
+
+  <h2>📦 Inventario de Productos</h2>
+
+  <table mat-table [dataSource]="products" class="mat-elevation-z8">
+
+    <!-- Nombre -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let p"> {{ p.type.type }} </td>
+    </ng-container>
+
+    <!-- Color -->
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef> Color </th>
+      <td mat-cell *matCellDef="let p"> {{ p.color || 'N/A' }} </td>
+    </ng-container>
+
+    <!-- Precio Compra -->
+    <ng-container matColumnDef="buyPrice">
+      <th mat-header-cell *matHeaderCellDef> Precio Compra </th>
+      <td mat-cell *matCellDef="let p"> ${{ p.buyPrice | number:'1.2-2' }} </td>
+    </ng-container>
+
+    <!-- Precio Venta -->
+    <ng-container matColumnDef="salePrice">
+      <th mat-header-cell *matHeaderCellDef> Precio Venta </th>
+      <td mat-cell *matCellDef="let p"> ${{ p.salePrice | number:'1.2-2' }} </td>
+    </ng-container>
+
+    <!-- Cantidad -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+      <td mat-cell *matCellDef="let p">
+        <span [ngClass]="{ 'low-stock': p.avibleQuantity < 5, 'out-of-stock': p.avibleQuantity === 0 }">
+          {{ p.avibleQuantity }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let p">
+        <button mat-icon-button color="primary" (click)="product = p">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteProduct(p.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+  </table>
+</div>

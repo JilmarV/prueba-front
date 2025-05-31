@@ -1,56 +1,57 @@
-# Etapa de construcción
+# Build stage
 FROM node:18-alpine as build
 
+# Set working directory inside the container
 WORKDIR /app
 
-# Copiar archivos de configuración
+# Copy package configuration files
 COPY package*.json ./
 
-# Instalar dependencias
+# Install dependencies using clean install (faster and reproducible)
 RUN npm ci
 
-# Copiar código fuente
+# Copy the rest of the source code
 COPY . .
 
-# Construir la aplicación
+# Build the application (e.g., for Vite, React, Vue, etc.)
 RUN npm run build
 
-# Debug: ver qué se generó
-RUN echo "=== CONTENIDO DE DIST ===" && ls -la /app/dist/
-RUN echo "=== ARCHIVOS HTML EN DIST ===" && find /app/dist -name "*.html" -exec ls -la {} \;
-RUN echo "=== ESTRUCTURA COMPLETA DIST ===" && find /app/dist -type f | head -20
+# Debug: list contents of the build output directory
+RUN echo "=== DIST CONTENT ===" && ls -la /app/dist/
+RUN echo "=== HTML FILES IN DIST ===" && find /app/dist -name "*.html" -exec ls -la {} \;
+RUN echo "=== FULL STRUCTURE OF DIST (first 20 files) ===" && find /app/dist -type f | head -20
 
-# Etapa de producción
+# Production stage using Nginx
 FROM nginx:alpine
 
-# Eliminar contenido por defecto de nginx
+# Remove the default Nginx static files
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copiar archivos construidos - intentar varias opciones
+# Copy the build output from the previous stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Si existe una subcarpeta, moverla al root
+# If the build output is inside a subfolder (like front-golden-eggs), move it to the root
 RUN if [ -d "/usr/share/nginx/html/front-golden-eggs" ]; then \
-      echo "Moviendo archivos de subcarpeta front-golden-eggs"; \
+      echo "Moving contents from subfolder front-golden-eggs"; \
       mv /usr/share/nginx/html/front-golden-eggs/* /usr/share/nginx/html/ 2>/dev/null || true; \
       rmdir /usr/share/nginx/html/front-golden-eggs 2>/dev/null || true; \
     fi
 
-# Intentar con otras posibles carpetas
+# Try other folders: move the one containing index.html to the root
 RUN for dir in /usr/share/nginx/html/*/; do \
       if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then \
-        echo "Encontrada carpeta con index.html: $dir"; \
+        echo "Found folder with index.html: $dir"; \
         mv "$dir"* /usr/share/nginx/html/ 2>/dev/null || true; \
         rmdir "$dir" 2>/dev/null || true; \
         break; \
       fi; \
     done
 
-# Debug: ver qué quedó en nginx
-RUN echo "=== CONTENIDO FINAL NGINX ===" && ls -la /usr/share/nginx/html/
-RUN echo "=== INDEX.HTML EXISTE? ===" && ls -la /usr/share/nginx/html/index.html 2>/dev/null || echo "NO EXISTE index.html"
+# Debug: final verification of what was placed in Nginx's html folder
+RUN echo "=== FINAL CONTENT IN NGINX ===" && ls -la /usr/share/nginx/html/
+RUN echo "=== IS index.html PRESENT? ===" && ls -la /usr/share/nginx/html/index.html 2>/dev/null || echo "index.html NOT FOUND"
 
-# Crear configuración de nginx
+# Generate Nginx configuration
 RUN echo 'server {\
     listen 80;\
     server_name localhost;\
@@ -84,8 +85,8 @@ RUN echo 'server {\
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;\
 }' > /etc/nginx/conf.d/default.conf
 
-# Exponer puerto
+# Expose port 80
 EXPOSE 80
 
-# Comando por defecto
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
